@@ -11,10 +11,10 @@ app.use(cors());
 app.use(morgan('dev'));
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 
 // parse application/json
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.use('/', routes);
 
