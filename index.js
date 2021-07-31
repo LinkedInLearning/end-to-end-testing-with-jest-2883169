@@ -6,10 +6,6 @@ const routes = require('./routes/index.js');
 
 const app = express();
 
-const config = {
-  port: process.env.PORT || 8080,
-};
-
 // add other middleware
 app.use(cors());
 app.use(morgan('dev'));
@@ -21,6 +17,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/', routes);
+
+const config = {
+  port: process.env.PORT || 8080,
+};
 
 app.listen(config.port, () => {
   // eslint-disable-next-line no-console
