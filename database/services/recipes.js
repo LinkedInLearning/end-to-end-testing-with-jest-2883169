@@ -13,8 +13,11 @@ const RecipesClass = {
   },
 
   fetchById: async (id) => {
-    const response = await Recipes.findById(id);
-    return response;
+    try{
+      const response = await Recipes.findById(id);
+      return response;
+    }catch(err){
+    }
   },
 
   fetchByIdAndUpdate: async (id, recipesDetail) => {
