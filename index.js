@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use('/', routes);
+return app;
 }
 const app = initializeApp();
 module.exports = app;
