@@ -112,4 +112,106 @@ describe ('test the recipes API', ()=>{
             );
         });
     });
+    //test create recipes
+    describe('POST/recipes',()=>{
+        it ('it should save new recipe to db',
+        async()=>{
+            //DATA YOU WANT TO SAVE TO DB
+            const recipe = {
+                name : 'chicken nuggets',
+                difficulty : 2,
+                vegetarian : true
+            };
+            const res = await request(app)
+            .post('/recipes')
+            .send(recipe)
+            .set('Authorization',`Bearer ${token}`);
+            expect (res.statusCode).toEqual(201);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    success : true,
+                    data : expect.any(Object)
+                }),
+            );
+            id = res.body.data._id;
+        });
+        it('it should not save new recipe to db,incalid vegetarian value',
+        async ()=>{
+            //DATA YOU WANT TO SAVE TO DB
+            const recipe = {
+                name : 'chicken nuggets',
+                difficulty : 3,
+                vegetarian : 'true'
+            };
+            const res = await request(app)
+            .post('/recipes')
+            .send(recipe)
+            .set('Authorization',`Bearer ${token}`);
+            expect(res.statusCode).toEqual(400);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    success: false,
+                    message : 'vegetarian field should be boolean'
+                }),
+            );
+        });
+        it ('it should not save new user to db,empty name field',
+        async ()=>{
+            //DATA YOU WANT TO SAVE TO DB
+            const recipe ={
+                difficulty: 2,
+                vegetarian : true
+            };
+            const res = await request (app)
+            .post('/recipes')
+            .send(recipe)
+            .set('Authorization',`Bearer ${token}`);
+            expect(res.statusCode).toEqual(400);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    success : false,
+                    message : 'name field can not be empty'
+                }),
+            );
+        });
+        it ('it should not save new recipe to db,invalid difficulty field',
+        async()=>{
+            //DATA YOU WANT TO SAVE TO DB
+            const recipe = {
+                name : 'jollof rice',
+                difficulty : '2',
+                vegetarian : true
+            };
+            const res = await request(app)
+            .post('/recipes')
+            .send(recipe)
+            .set('Authorization',`Bearer ${token}`);
+            expect (res.statusCode).toEqual(400);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    success : false,
+                    message : 'difficulty field should be a number'
+                }),
+            );
+        });
+        it('it should not save new recipe to db,invalid token',
+        async()=>{
+            //DATA YOU WANT TO SAVE TO DB
+            const recipe = {
+                name : 'chicken nuggets',
+                difficulty : 2,
+                vegetarian : true
+            };
+            const res  = await request (app)
+            .post('/recipes')
+            .send(recipe)
+            .set('Authorization',`Bearer siuogusire7893034pt4`);
+            expect(res.statusCode).toEqual(403);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    message : 'Unauthorized'
+                }),
+            );
+        });
+    });
 });

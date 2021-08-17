@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1628120757224" clover="3.2.0">
-  <project timestamp="1628120757225" name="All files">
-    <metrics statements="138" coveredstatements="94" conditionals="39" coveredconditionals="22" methods="16" coveredmethods="8" elements="193" coveredelements="124" complexity="0" loc="138" ncloc="138" packages="6" files="10" classes="10"/>
+<coverage generated="1628317093687" clover="3.2.0">
+  <project timestamp="1628317093687" name="All files">
+    <metrics statements="138" coveredstatements="95" conditionals="39" coveredconditionals="23" methods="16" coveredmethods="8" elements="193" coveredelements="126" complexity="0" loc="138" ncloc="138" packages="6" files="10" classes="10"/>
     <package name="end-to-end-testing-with-jest-2883169">
       <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="index.js" path="/Users/technicalinstructor/Desktop/end-to-end-testing-with-jest-2883169/index.js">
@@ -159,15 +159,15 @@
       </file>
     </package>
     <package name="end-to-end-testing-with-jest-2883169.routes">
-      <metrics statements="21" coveredstatements="20" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
+      <metrics statements="21" coveredstatements="21" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
       <file name="authenticateToken.js" path="/Users/technicalinstructor/Desktop/end-to-end-testing-with-jest-2883169/routes/authenticateToken.js">
-        <metrics statements="9" coveredstatements="8" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
+        <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="2" count="1" type="stmt"/>
-        <line num="5" count="4" type="stmt"/>
-        <line num="6" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="8" count="4" type="stmt"/>
-        <line num="9" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="10" count="0" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="9" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="1" type="stmt"/>
         <line num="14" count="4" type="stmt"/>
         <line num="15" count="4" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
