@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-empty */
 const Recipes = require('../models/recipes');
 
 const RecipesClass = {
@@ -13,10 +15,10 @@ const RecipesClass = {
   },
 
   fetchById: async (id) => {
-    try{
+    try {
       const response = await Recipes.findById(id);
       return response;
-    }catch(err){
+    } catch (err) {
     }
   },
 
