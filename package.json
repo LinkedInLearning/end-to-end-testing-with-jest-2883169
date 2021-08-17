@@ -8,7 +8,11 @@
     "dev": "nodemon serve",
     "lint": "eslint ./",
     "seed": "node database/seed/index",
-    "seed:rollback": "node database/seed/index --rollback"
+    "seed:rollback": "node database/seed/index --rollback",
+    "test": "cross-env DATABASE_URI=mongodb://localhost:27017/recipe_app_test jest --collectCoverage --forceExit --detectOpenHandles"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "repository": {
     "type": "git",
@@ -35,11 +39,14 @@
     "nodemon": "^2.0.6"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "eslint": "^7.13.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "jest": "^27.0.6",
+    "supertest": "^6.1.4"
   }
 }
