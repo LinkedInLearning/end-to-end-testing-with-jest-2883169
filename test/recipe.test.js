@@ -256,4 +256,114 @@ describe ('test the recipes API', ()=>{
             );
         });
     });
+    //test update recipe
+    describe('PATCH/recipes/:id',()=>{
+        it ('update the recipe record in db',
+        async()=>{
+            //DATA YOU WANT TO UPDATE IN DB
+            const recipes = {
+                name : 'chicken nuggets'
+            };
+            const res = await request(app)
+            .patch(`/recipes/${id}`)
+            .send (recipes)
+            .set('Authorization',`Bearer ${token}`);
+            expect(res.statusCode).toEqual(200);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    success : true,
+                    data : expect.any(Object)
+                }),
+            );
+        });
+        it('it should not update recipe in db,invalid difficulty value',
+        async()=>{
+            // DATA YOU WANT TO UPDATE IN DB
+            const recipe = {
+                name : 'jollof rice',
+                difficulty : '2'
+            };
+            const res = await request (app)
+            .patch(`/recipes/${id}`)
+            .send (recipe)
+            .set('Authorization',`Bearer ${token}`);
+            expect(res.statusCode).toEqual(400);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    success : false,
+                    message : 'difficulty field should be a number'
+                }),
+            );
+        });
+        it ('it should not update recipe in db, invalid vegetarian value',
+        async ()=>{
+            // DATA YOU WANT TO UPDATE IN DB
+            const recipe = {
+                difficulty: 3,
+                vegetarian : 'true'
+            };
+            const res = await request (app)
+            .patch(`/recipes/${id}`)
+            .send (recipe)
+            .set('Authorization', `Bearer ${token}`);
+            expect(res.statusCode).toEqual(400);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    success : false,
+                    message : 'vegetarian field should be boolean'
+                }),
+            );
+        });
+        it ('it should not update recipe in db, invalid id passed',
+        async()=>{
+            //DATA YOU WANT TO UPDATE IN DB
+            const recipe = {
+                difficulty: 3
+            };
+            const res = await request(app)
+            .patch ('/recipes/uowe8ww78wowfonfwh27823t67200')
+            .send(recipe)
+            .set('Authorization',`Bearer ${token}`);
+            expect(res.statusCode).toEqual(400);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    success : false,
+                    message : 'Recipe with id uowe8ww78wowfonfwh27823t67200 does not exist'
+                }),
+            );
+        });
+        it ('it should not update recipe in db, invalid token',
+        async()=>{
+            // DATA YOU WANT TO UPDATE IN DB
+            const recipes = {
+                name : 'chicken nuggets'
+            };
+            const res = await request(app)
+            .patch (`/recipes/${id}`)
+            .send (recipes)
+            .set('Authorization', 'Bearer 0qhiwfhnfnwwn098h3w8e');
+            expect(res.statusCode).toEqual(403);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    message : 'Unauthorized'
+                }),
+            );
+        });
+        it ('it should not update recipe in db, no update passed',
+        async ()=>{
+            // DATA YOU WANT UPDATE IN DB
+            const recipes = {};
+            const res = await request(app)
+            .patch (`/recipes/${id}`)
+            .send (recipes)
+            .set('Authorization', `Bearer ${token}`);
+            expect(res.statusCode).toEqual(400);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    success : false,
+                    message : 'field should not be empty'
+                }),
+            );
+        });
+    });
 });
