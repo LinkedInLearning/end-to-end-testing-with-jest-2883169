@@ -214,4 +214,46 @@ describe ('test the recipes API', ()=>{
             );
         });
     });
+    //test get all recipe
+    describe('GET/recipes',()=>{
+        it('it should retrieve all the recipes in db',
+        async()=>{
+            const res = await request(app)
+            .get('/recipes');
+            expect(res.statusCode).toEqual(200);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    success : true,
+                    data : expect.any(Object),
+                }),
+            );
+        });
+    });
+    //test get a particular recipe
+    describe('GET/recipes/:id',()=>{
+        it('Retrieve a specified recipes in db',
+        async()=>{
+            const res = await request (app)
+            .get(`/recipes/${id}`);
+            expect(res.statusCode).toEqual(200);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    success : true,
+                    data : expect.any(Object)
+                }),
+            );
+        });
+        it ('it should not retrieve any recipe from the db,invalid id passed',
+        async ()=>{
+            const res = await request(app)
+            .get('/recipes/282hsowj8byewiuewgfg6732i2');
+            expect(res.statusCode).toEqual(400);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    success : false,
+                    message : 'Recipe with id 282hsowj8byewiuewgfg6732i2 does not exist'
+                }),
+            );
+        });
+    });
 });
