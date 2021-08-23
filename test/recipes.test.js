@@ -153,5 +153,63 @@ describe('test the recipes API', ()=>{
                 }),
             );
         });
+        it ('it should not save  new users to db, empty name field',
+        async ()=>{
+            // DATA YOU WANT TO SAVE TO DB
+            const recipe = {
+                difficulty : 2,
+                vegetarian : true
+            };
+            const res = await request(app)
+            .post('/recipes')
+            .send(recipe)
+            .set('Authorization', `Bearer ${token}`);
+            expect(res.statusCode).toEqual(400);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    success : false,
+                    message : 'name field can not be empty'
+                }),
+            );
+        });
+        it ('it should not save new recipe to db,invalid difficulty field',
+        async ()=>{
+            // DATA YOU WANT TO SAVE TO DB
+            const recipe = {
+                name : 'jollof rice',
+                difficulty : '2',
+                vegetarian : true
+            };
+            const res = await request(app)
+            .post('/recipes')
+            .send(recipe)
+            .set('Authorization',`Bearer ${token}`);
+            expect(res.statusCode).toEqual(400)
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    success : false,
+                    message : 'difficulty field should be a number'
+                }),
+            );
+        });
+        it ('it should not save new recipe to db, invalid token',
+        async ()=>{
+            // DATA YOU WANT TO SAVE TO DB
+            const recipes = {
+                name : 'chicken  nuggets',
+                difficulty : 2,
+                vegetarian : true
+            };
+            const res = await request(app)
+            .post('/recipes')
+            .send(recipes)
+            .set('Authorization', 'Bearer huiaduauaoiw7932nd');
+            expect(res.statusCode).toEqual(403);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    message : 'Unauthorized'
+                }),
+            );
+        });
     });
 });

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1629712448672" clover="3.2.0">
-  <project timestamp="1629712448672" name="All files">
-    <metrics statements="138" coveredstatements="92" conditionals="39" coveredconditionals="20" methods="16" coveredmethods="8" elements="193" coveredelements="120" complexity="0" loc="138" ncloc="138" packages="6" files="10" classes="10"/>
+<coverage generated="1629715167453" clover="3.2.0">
+  <project timestamp="1629715167453" name="All files">
+    <metrics statements="138" coveredstatements="95" conditionals="39" coveredconditionals="23" methods="16" coveredmethods="8" elements="193" coveredelements="126" complexity="0" loc="138" ncloc="138" packages="6" files="10" classes="10"/>
     <package name="end-to-end-testing-with-jest-2883169">
       <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="index.js" path="/Users/technicalinstructor/Desktop/end-to-end-testing-with-jest-2883169/index.js">
@@ -24,24 +24,24 @@
       </file>
     </package>
     <package name="end-to-end-testing-with-jest-2883169.controllers">
-      <metrics statements="67" coveredstatements="31" conditionals="33" coveredconditionals="15" methods="7" coveredmethods="3"/>
+      <metrics statements="67" coveredstatements="33" conditionals="33" coveredconditionals="17" methods="7" coveredmethods="3"/>
       <file name="RecipesController.js" path="/Users/technicalinstructor/Desktop/end-to-end-testing-with-jest-2883169/controllers/RecipesController.js">
-        <metrics statements="48" coveredstatements="13" conditionals="25" coveredconditionals="7" methods="5" coveredmethods="1"/>
+        <metrics statements="48" coveredstatements="15" conditionals="25" coveredconditionals="9" methods="5" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="31" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="31" count="4" type="cond" truecount="2" falsecount="0"/>
         <line num="32" count="1" type="stmt"/>
-        <line num="38" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="46" count="1" type="cond" truecount="4" falsecount="1"/>
-        <line num="47" count="0" type="stmt"/>
+        <line num="38" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="46" count="2" type="cond" truecount="5" falsecount="0"/>
+        <line num="47" count="1" type="stmt"/>
         <line num="53" count="1" type="stmt"/>
         <line num="60" count="1" type="stmt"/>
         <line num="62" count="1" type="stmt"/>
@@ -159,17 +159,17 @@
       </file>
     </package>
     <package name="end-to-end-testing-with-jest-2883169.routes">
-      <metrics statements="21" coveredstatements="20" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
+      <metrics statements="21" coveredstatements="21" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
       <file name="authenticateToken.js" path="/Users/technicalinstructor/Desktop/end-to-end-testing-with-jest-2883169/routes/authenticateToken.js">
-        <metrics statements="9" coveredstatements="8" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
+        <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="2" count="1" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="9" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/technicalinstructor/Desktop/end-to-end-testing-with-jest-2883169/routes/index.js">
