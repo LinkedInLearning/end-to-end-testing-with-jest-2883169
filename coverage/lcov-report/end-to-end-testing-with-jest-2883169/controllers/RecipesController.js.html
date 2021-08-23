@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">6.25% </span>
+                <span class="strong">27.08% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/48</span>
+                <span class='fraction'>13/48</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">28% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/25</span>
+                <span class='fraction'>7/25</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>1/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">6.25% </span>
+                <span class="strong">27.08% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/48</span>
+                <span class='fraction'>13/48</span>
             </div>
         
             
@@ -254,36 +254,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -291,9 +277,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -428,23 +428,23 @@ const RecipesController = {
   },
 &nbsp;
   // Create and Save a new Recipes
-  create: <span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
-<span class="cstat-no" title="statement not covered" >    console.log('create')</span>
-<span class="cstat-no" title="statement not covered" >    try {</span>
+  create: async (req, res) =&gt; {
+    console.log('create')
+    try {
       // define variables
       const {
         name, difficulty, vegetarian,
-      } = <span class="cstat-no" title="statement not covered" >req.body;</span>
+      } = req.body;
 &nbsp;
       // validate vegetarian
-<span class="cstat-no" title="statement not covered" >      if (typeof vegetarian !== 'boolean') {</span>
-<span class="cstat-no" title="statement not covered" >        return res.status(400).send({</span>
+      if (typeof vegetarian !== 'boolean') {
+        return res.status(400).send({
           success: false,
           message: 'vegetarian field should be boolean',
         });
       }
       // validate name
-<span class="cstat-no" title="statement not covered" >      if (!req.body.name) {</span>
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!req.body.name) {
 <span class="cstat-no" title="statement not covered" >        return res.status(400).send({</span>
           success: false,
           message: 'name field can not be empty',
@@ -452,23 +452,23 @@ const RecipesController = {
       }
 &nbsp;
       // validate difficulty
-<span class="cstat-no" title="statement not covered" >      if ((typeof difficulty !== 'number') || (difficulty &lt;= 0) || (difficulty &gt; 3)) {</span>
+      <span class="missing-if-branch" title="if path not taken" >I</span>if ((typeof difficulty !== 'number') || (difficulty &lt;= 0) || (difficulty &gt; 3)) {
 <span class="cstat-no" title="statement not covered" >        return res.status(400).send({</span>
           success: false,
           message: 'difficulty field should be a number',
         });
       }
 &nbsp;
-      const recipesDetail = <span class="cstat-no" title="statement not covered" >{</span>
+      const recipesDetail = {
         name,
         difficulty,
         vegetarian,
       };
 &nbsp;
       // Save user in the database
-      const recipes = <span class="cstat-no" title="statement not covered" >await Recipes.saveRecipes(recipesDetail);</span>
+      const recipes = await Recipes.saveRecipes(recipesDetail);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      return res.status(201).send({</span>
+      return res.status(201).send({
         success: true,
         data: recipes,
       });
@@ -589,7 +589,7 @@ module.exports = RecipesController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Aug 23 2021 10:29:43 GMT+0100 (West Africa Standard Time)
+                at Mon Aug 23 2021 10:54:08 GMT+0100 (West Africa Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

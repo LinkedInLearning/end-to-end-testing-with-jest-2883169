@@ -111,4 +111,47 @@ describe('test the recipes API', ()=>{
             );
         });
     });
+    //test create recipes
+    describe('POST/recipes',()=>{
+        it ('it should save new  recipe to db', async ()=>{
+            // DATA YOU WANT TO SAVE TO DB
+            const recipes = {
+                name : 'chicken nuggets',
+                difficulty : 2,
+                vegetarian : true
+            };
+            const res = await request(app)
+            .post('/recipes')
+            .send(recipes)
+            .set('Authorization', `Bearer ${token}`);
+            expect(res.statusCode).toEqual(201);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    success : true,
+                    data : expect.any(Object)
+                }),
+            );
+            id = res.body.data._id;
+        });
+        it ('it should not save new recipe to db, invalid vegetarian value',
+        async ()=>{
+            // DATA YOU WANT TO SAVE TO DB
+            const recipe ={
+                name : 'chicken nuggets',
+                difficulty : 3,
+                vegetarian : 'true'
+            };
+            const res = await request(app)
+            .post('/recipes')
+            .send(recipe)
+            .set('Authorization', `Bearer ${token}`);
+            expect(res.statusCode).toEqual(400)
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    success : false,
+                    message : 'vegetarian field should be boolean'
+                }),
+            );
+        });
+    });
 });
