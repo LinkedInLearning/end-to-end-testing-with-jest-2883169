@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1628311504646" clover="3.2.0">
-  <project timestamp="1628311504646" name="All files">
+<coverage generated="1630124271820" clover="3.2.0">
+  <project timestamp="1630124271820" name="All files">
     <metrics statements="138" coveredstatements="138" conditionals="39" coveredconditionals="39" methods="16" coveredmethods="16" elements="193" coveredelements="193" complexity="0" loc="138" ncloc="138" packages="6" files="10" classes="10"/>
     <package name="end-to-end-testing-with-jest-2883169">
       <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
