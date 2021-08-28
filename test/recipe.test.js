@@ -3,6 +3,8 @@ const bcrypt = require('bcrypt');
 const app = require ('../index');
 const User = require('../database/models/users');
 const mongoose = require('../database/dbConection');
+const UserService = require ('../database/services/users');
+const RecipeService = require('../database/services/recipes');
 let id;
 let token;
 describe ('test the recipes API', ()=>{
@@ -111,6 +113,26 @@ describe ('test the recipes API', ()=>{
                 }),
             );
         });
+        it ('do not sign him in,internal server error',
+        async ()=>{
+            //DATA YOU WANT TO SAVE TO DB
+            const user = {
+                username : 'admin',
+                password : 'okay'
+            };
+            jest.spyOn(UserService, 'findByUsername')
+            .mockRejectedValueOnce(new Error());
+            const res = await request(app)
+            .post('/login')
+            .send(user);
+            expect(res.statusCode).toEqual(500);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    success : false,
+                    message : 'login failed.'
+                }),
+            );
+        });
     });
     //test create recipes
     describe('POST/recipes',()=>{
@@ -213,6 +235,28 @@ describe ('test the recipes API', ()=>{
                 }),
             );
         });
+        it ('it should not save new recipe to db, internal server error',
+        async ()=>{
+            // DATA YOU WANT TO SAVE TO DB
+            const recipes ={
+                name : 'chicken nuggets',
+                difficulty: 2,
+                vegetarian : true
+            };
+            jest.spyOn(RecipeService, 'saveRecipes')
+            .mockRejectedValueOnce(new Error());
+            const res = await request(app)
+            .post('/recipes')
+            .send(recipes)
+            .set('Authorization',`Bearer ${token}`);
+            expect(res.statusCode).toEqual(500);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    success : false,
+                    message : 'Failed to save recipes!'
+                }),
+            );
+        });
     });
     //test get all recipe
     describe('GET/recipes',()=>{
@@ -225,6 +269,21 @@ describe ('test the recipes API', ()=>{
                 expect.objectContaining({
                     success : true,
                     data : expect.any(Object),
+                }),
+            );
+        });
+        it('it should not retrieve any recipe from db,internal server error',
+        async ()=>{
+            jest.spyOn(RecipeService,'allRecipes')
+            .mockRejectedValueOnce(new Error());
+            const res = await request(app)
+            .get('/recipes')
+            .send();
+            expect(res.statusCode).toEqual(500);
+            expect(res.body).toEqual(
+                expect.objectContaining({
+                    success : false,
+                    message : 'Some error occurred while retrieving recipes.'
                 }),
             );
         });
